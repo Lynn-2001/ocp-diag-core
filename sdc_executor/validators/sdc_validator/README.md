@@ -13,10 +13,22 @@ cd ocp-diag-core
 
 ## Building the SDC Validator
 
+### Online Build (standard)
+
 ```bash
 cd sdc_executor/validators/sdc_validator
 go mod tidy
 go build -o sdc_validator
+```
+
+### Offline Build (for corporate environments)
+
+For environments that block proxy.golang.org, use the vendor directory:
+
+```bash
+cd sdc_executor/validators/sdc_validator
+./create_vendor.sh  # Creates vendor directory with dependencies
+go build -mod=vendor -o sdc_validator
 ```
 
 ## Running the SDC Validator
@@ -114,6 +126,10 @@ go test ./pkg/schema_validator/
 
 **7. `footprint_tax_percent value must be >= 0.0`**
 - **Solution:** Verify footprint_tax_percent values are non-negative or null
+
+**8. `panic: runtime error: invalid memory address or nil pointer dereference`**
+- **Issue:** WalkDir encounters filesystem access errors and passes nil DirEntry
+- **Solution:** This has been fixed in the latest version - update to the latest code
 
 ### Validation Details
 
