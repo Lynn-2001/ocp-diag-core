@@ -44,6 +44,13 @@ func New(schemaPath string) (*SchemaValidator, error) {
 
 	// Load OCP standard schemas
 	err := filepath.WalkDir(path.Dir(schemaPath), func(fpath string, d fs.DirEntry, err error) error {
+		// SDC fix: Handle WalkDir errors and nil DirEntry to prevent panic
+		if err != nil {
+			return err
+		}
+		if d == nil {
+			return nil
+		}
 		if !d.IsDir() && filepath.Ext(fpath) == ".json" {
 			url, err := getSchemaURL(fpath)
 			if err != nil {
@@ -74,6 +81,13 @@ func New(schemaPath string) (*SchemaValidator, error) {
 	sdcSchemaDir := "../../schema/output"
 	if _, err := os.Stat(sdcSchemaDir); err == nil {
 		err := filepath.WalkDir(sdcSchemaDir, func(fpath string, d fs.DirEntry, err error) error {
+			// SDC fix: Handle WalkDir errors and nil DirEntry to prevent panic
+			if err != nil {
+				return err
+			}
+			if d == nil {
+				return nil
+			}
 			if !d.IsDir() && filepath.Ext(fpath) == ".json" {
 				url, err := getSchemaURL(fpath)
 				if err != nil {
