@@ -1,0 +1,13 @@
+# SDC Output Schema Extension Dependencies
+# Python 3.10+ required
+
+# JSON Schema validation
+jsonschema>=4.0.0
+
+# Standard library dependencies (included for clarity)
+# - dataclasses (built-in Python 3.7+)
+# - typing (built-in Python 3.5+)
+# - datetime (built-in)
+# - json (built-in)
+# - pathlib (built-in Python 3.4+)
+# - statistics (built-in Python 3.4+)
