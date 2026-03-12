@@ -1,0 +1,37 @@
+{"schemaVersion": {"major": 2, "minor": 0}, "sequenceNumber": 0, "timestamp": "2024-01-15T10:30:00.000Z"}
+{"testRunArtifact": {"testRunStart": {"name": "SDC_Workload_Test", "version": "1.0.0", "parameters": {"workloads": ["cpu_stress", "memory_test"], "iterations_per_workload": 3}, "dutInfo": [{"hostname": "test-node-01", "hardwareComponents": [{"hardwareInfoId": "cpu0", "name": "Intel Xeon", "partType": "cpu", "manufacturer": "Intel"}, {"hardwareInfoId": "mem0", "name": "DDR4-3200", "partType": "memory", "manufacturer": "Samsung"}]}]}}, "sequenceNumber": 1, "timestamp": "2024-01-15T10:30:00.100Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_0", "testStepStart": {"name": "cpu_stress_iteration_0"}}, "sequenceNumber": 2, "timestamp": "2024-01-15T10:30:01.000Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_0", "measurement": {"name": "cpu_utilization", "value": 95.2, "unit": "%", "hardwareInfoId": "cpu0"}}, "sequenceNumber": 3, "timestamp": "2024-01-15T10:30:15.500Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_0", "measurement": {"name": "temperature", "value": 68.5, "unit": "C", "hardwareInfoId": "cpu0"}}, "sequenceNumber": 4, "timestamp": "2024-01-15T10:30:30.000Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_0", "testStepEnd": {"status": "COMPLETE", "result": "PASS"}}, "sequenceNumber": 5, "timestamp": "2024-01-15T10:30:45.000Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_1", "testStepStart": {"name": "cpu_stress_iteration_1"}}, "sequenceNumber": 6, "timestamp": "2024-01-15T10:30:46.000Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_1", "measurement": {"name": "cpu_utilization", "value": 94.8, "unit": "%", "hardwareInfoId": "cpu0"}}, "sequenceNumber": 7, "timestamp": "2024-01-15T10:31:00.500Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_1", "measurement": {"name": "temperature", "value": 69.1, "unit": "C", "hardwareInfoId": "cpu0"}}, "sequenceNumber": 8, "timestamp": "2024-01-15T10:31:15.000Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_1", "testStepEnd": {"status": "COMPLETE", "result": "PASS"}}, "sequenceNumber": 9, "timestamp": "2024-01-15T10:31:30.000Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_2", "testStepStart": {"name": "cpu_stress_iteration_2"}}, "sequenceNumber": 10, "timestamp": "2024-01-15T10:31:31.000Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_2", "measurement": {"name": "cpu_utilization", "value": 93.5, "unit": "%", "hardwareInfoId": "cpu0"}}, "sequenceNumber": 11, "timestamp": "2024-01-15T10:31:45.500Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_2", "measurement": {"name": "temperature", "value": 67.8, "unit": "C", "hardwareInfoId": "cpu0"}}, "sequenceNumber": 12, "timestamp": "2024-01-15T10:32:00.000Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_iter_2", "testStepEnd": {"status": "COMPLETE", "result": "PASS"}}, "sequenceNumber": 13, "timestamp": "2024-01-15T10:32:15.000Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_summary", "testStepStart": {"name": "cpu_stress-summary", "metadata": {"stepType": "sdc-workload-summary"}}}, "sequenceNumber": 14, "timestamp": "2024-01-15T10:32:16.000Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_summary", "measurement": {"name": "ttf_seconds", "value": null, "unit": "s"}}, "sequenceNumber": 15, "timestamp": "2024-01-15T10:32:16.100Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_summary", "measurement": {"name": "repeatability_rate", "value": 1.0, "unit": "ratio"}}, "sequenceNumber": 16, "timestamp": "2024-01-15T10:32:16.200Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_summary", "measurement": {"name": "footprint_tax_percent", "value": 1.2, "unit": "%"}}, "sequenceNumber": 17, "timestamp": "2024-01-15T10:32:16.300Z"}
+{"testStepArtifact": {"testStepId": "cpu_stress_summary", "testStepEnd": {"status": "COMPLETE"}}, "sequenceNumber": 18, "timestamp": "2024-01-15T10:32:16.400Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_0", "testStepStart": {"name": "memory_test_iteration_0"}}, "sequenceNumber": 19, "timestamp": "2024-01-15T10:32:20.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_0", "measurement": {"name": "memory_bandwidth", "value": 45.6, "unit": "GB/s", "hardwareInfoId": "mem0"}}, "sequenceNumber": 20, "timestamp": "2024-01-15T10:32:35.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_0", "measurement": {"name": "error_count", "value": 0, "unit": "count"}}, "sequenceNumber": 21, "timestamp": "2024-01-15T10:32:50.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_0", "testStepEnd": {"status": "COMPLETE", "result": "PASS"}}, "sequenceNumber": 22, "timestamp": "2024-01-15T10:33:00.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_1", "testStepStart": {"name": "memory_test_iteration_1"}}, "sequenceNumber": 23, "timestamp": "2024-01-15T10:33:01.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_1", "measurement": {"name": "memory_bandwidth", "value": 44.8, "unit": "GB/s", "hardwareInfoId": "mem0"}}, "sequenceNumber": 24, "timestamp": "2024-01-15T10:33:15.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_1", "measurement": {"name": "error_count", "value": 1, "unit": "count"}}, "sequenceNumber": 25, "timestamp": "2024-01-15T10:33:25.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_1", "testStepEnd": {"status": "COMPLETE", "result": "FAIL"}}, "sequenceNumber": 26, "timestamp": "2024-01-15T10:33:30.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_2", "testStepStart": {"name": "memory_test_iteration_2"}}, "sequenceNumber": 27, "timestamp": "2024-01-15T10:33:31.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_2", "measurement": {"name": "memory_bandwidth", "value": 45.1, "unit": "GB/s", "hardwareInfoId": "mem0"}}, "sequenceNumber": 28, "timestamp": "2024-01-15T10:33:45.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_2", "measurement": {"name": "error_count", "value": 0, "unit": "count"}}, "sequenceNumber": 29, "timestamp": "2024-01-15T10:33:55.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_iter_2", "testStepEnd": {"status": "COMPLETE", "result": "PASS"}}, "sequenceNumber": 30, "timestamp": "2024-01-15T10:34:00.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_summary", "testStepStart": {"name": "memory_test-summary", "metadata": {"stepType": "sdc-workload-summary"}}}, "sequenceNumber": 31, "timestamp": "2024-01-15T10:34:01.000Z"}
+{"testStepArtifact": {"testStepId": "memory_test_summary", "measurement": {"name": "ttf_seconds", "value": 25.0, "unit": "s"}}, "sequenceNumber": 32, "timestamp": "2024-01-15T10:34:01.100Z"}
+{"testStepArtifact": {"testStepId": "memory_test_summary", "measurement": {"name": "repeatability_rate", "value": 0.67, "unit": "ratio"}}, "sequenceNumber": 33, "timestamp": "2024-01-15T10:34:01.200Z"}
+{"testStepArtifact": {"testStepId": "memory_test_summary", "measurement": {"name": "footprint_tax_percent", "value": 0.8, "unit": "%"}}, "sequenceNumber": 34, "timestamp": "2024-01-15T10:34:01.300Z"}
+{"testStepArtifact": {"testStepId": "memory_test_summary", "testStepEnd": {"status": "COMPLETE"}}, "sequenceNumber": 35, "timestamp": "2024-01-15T10:34:01.400Z"}
+{"testRunArtifact": {"testRunEnd": {"status": "COMPLETE", "result": "FAIL"}}, "sequenceNumber": 36, "timestamp": "2024-01-15T10:34:05.000Z"}
