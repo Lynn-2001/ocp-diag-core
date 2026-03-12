@@ -70,7 +70,8 @@ func New(schemaPath string) (*SchemaValidator, error) {
 
 	// Load SDC extension schemas - override OCP schemas where they exist
 	// SDC extension: Load modified schemas from sdc_executor/schema/output/ to override OCP versions
-	sdcSchemaDir := "../../../schema/output"
+	// Fixed path: should be ../../schema/output from pkg/schema_validator directory
+	sdcSchemaDir := "../../schema/output"
 	if _, err := os.Stat(sdcSchemaDir); err == nil {
 		err := filepath.WalkDir(sdcSchemaDir, func(fpath string, d fs.DirEntry, err error) error {
 			if !d.IsDir() && filepath.Ext(fpath) == ".json" {
