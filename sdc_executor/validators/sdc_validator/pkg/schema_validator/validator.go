@@ -42,6 +42,7 @@ type SchemaValidator struct {
 func New(schemaPath string) (*SchemaValidator, error) {
 	c := js.NewCompiler()
 
+	// Load OCP standard schemas
 	err := filepath.WalkDir(path.Dir(schemaPath), func(fpath string, d fs.DirEntry, err error) error {
 		if !d.IsDir() && filepath.Ext(fpath) == ".json" {
 			url, err := getSchemaURL(fpath)
@@ -65,6 +66,36 @@ func New(schemaPath string) (*SchemaValidator, error) {
 	})
 	if err != nil {
 		return nil, err
+	}
+
+	// Load SDC extension schemas - override OCP schemas where they exist
+	// SDC extension: Load modified schemas from sdc_executor/schema/output/ to override OCP versions
+	sdcSchemaDir := "../../../schema/output"
+	if _, err := os.Stat(sdcSchemaDir); err == nil {
+		err := filepath.WalkDir(sdcSchemaDir, func(fpath string, d fs.DirEntry, err error) error {
+			if !d.IsDir() && filepath.Ext(fpath) == ".json" {
+				url, err := getSchemaURL(fpath)
+				if err != nil {
+					return fmt.Errorf("failed to get SDC schema $id: %w", err)
+				}
+
+				f, err := os.Open(fpath)
+				if err != nil {
+					return fmt.Errorf("could not open SDC extension spec: %v", err)
+				}
+				defer f.Close()
+
+				if err := c.AddResource(url, f); err != nil {
+					return err
+				}
+				log.Printf("Registered SDC extension schema %v -> %v\n", url, fpath)
+			}
+
+			return nil
+		})
+		if err != nil {
+			return nil, fmt.Errorf("failed to load SDC extension schemas: %w", err)
+		}
 	}
 
 	mainURL, err := getSchemaURL(schemaPath)

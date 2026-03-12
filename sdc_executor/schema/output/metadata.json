@@ -1,0 +1,14 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/opencomputeproject/ocp-diag-core/metadata",
+    "title": "Metadata",
+    "description": "TODO: link to md doc",
+    "type": "object",
+    "properties": {
+        "stepType": {
+            "description": "SDC extension: Step type identifier for workload summary steps",
+            "type": "string",
+            "enum": ["sdc-workload-summary"]
+        }
+    }
+}
