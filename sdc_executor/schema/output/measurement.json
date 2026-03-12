@@ -1,0 +1,105 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/opencomputeproject/ocp-diag-core/measurement",
+    "title": "Measurement",
+    "description": "TODO: link to md doc",
+    "properties": {
+        "name": {
+            "description": "TODO: link to md doc",
+            "type": "string"
+        },
+        "value": {
+            "description": "TODO: link to md doc",
+            "type": [
+                "string",
+                "boolean",
+                "number",
+                "null"
+            ]
+        },
+        "unit": {
+            "description": "TODO: link to md doc",
+            "type": "string"
+        },
+        "validators": {
+            "description": "TODO: link to md doc",
+            "type": "array",
+            "items": {
+                "$ref": "/opencomputeproject/ocp-diag-core/validator"
+            }
+        },
+        "hardwareInfoId": {
+            "description": "TODO: link to md doc",
+            "type": "string"
+        },
+        "subcomponent": {
+            "description": "TODO: link to md doc",
+            "$ref": "/opencomputeproject/ocp-diag-core/subcomponent"
+        },
+        "metadata": {
+            "description": "TODO: link to md doc",
+            "$ref": "/opencomputeproject/ocp-diag-core/metadata"
+        }
+    },
+    "required": [
+        "name",
+        "value"
+    ],
+    "additionalProperties": false,
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "name": {"const": "ttf_seconds"}
+                }
+            },
+            "then": {
+                "properties": {
+                    "value": {
+                        "oneOf": [
+                            {"type": "null"},
+                            {"type": "number", "minimum": 0}
+                        ]
+                    },
+                    "unit": {"const": "s"}
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "name": {"const": "repeatability_rate"}
+                }
+            },
+            "then": {
+                "properties": {
+                    "value": {
+                        "oneOf": [
+                            {"type": "null"},
+                            {"type": "number", "minimum": 0.0, "maximum": 1.0}
+                        ]
+                    },
+                    "unit": {"const": "ratio"}
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "name": {"const": "footprint_tax_percent"}
+                }
+            },
+            "then": {
+                "properties": {
+                    "value": {
+                        "oneOf": [
+                            {"type": "null"},
+                            {"type": "number", "minimum": 0}
+                        ]
+                    },
+                    "unit": {"const": "%"}
+                }
+            }
+        }
+    ]
+}
