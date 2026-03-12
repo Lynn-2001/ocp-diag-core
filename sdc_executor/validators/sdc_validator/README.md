@@ -13,11 +13,24 @@ cd ocp-diag-core
 
 ## Building the SDC Validator
 
+### Online Build (requires internet access)
+
 ```bash
 cd sdc_executor/validators/sdc_validator
 go mod tidy
 go build -o sdc_validator
 ```
+
+### Offline Build (uses vendored dependencies)
+
+For environments behind corporate proxies that block proxy.golang.org:
+
+```bash
+cd sdc_executor/validators/sdc_validator
+go build -mod=vendor -o sdc_validator
+```
+
+**Note:** The vendor directory contains all dependencies and is committed to the repository for offline builds.
 
 ## Running the SDC Validator
 
@@ -72,9 +85,16 @@ all ok
 
 ### SDC Validator Tests
 
+**Online mode:**
 ```bash
 cd sdc_executor/validators/sdc_validator
 go test ./pkg/schema_validator/
+```
+
+**Offline mode (using vendor):**
+```bash
+cd sdc_executor/validators/sdc_validator
+go test -mod=vendor ./pkg/schema_validator/
 ```
 
 **Expected Output:**
@@ -99,6 +119,7 @@ go test ./pkg/schema_validator/
 
 **2. `cannot find module`**
 - **Solution:** Run `go mod tidy` in the validator directory before building
+- **Alternative:** Use offline mode with `go build -mod=vendor` if behind a corporate proxy
 
 **3. `failed to get schema $id`**
 - **Solution:** Ensure all schema files have valid `$id` fields and are properly formatted JSON
